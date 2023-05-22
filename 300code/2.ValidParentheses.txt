@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack <char> stk;  
+        for(int i = 0; i < s.length(); ++i){
+            if(s[i] == ')' || s[i] == ']' || s[i] == '}'){
+                   if(stk.empty())
+                        return false; 
+                    char c = stk.top(); 
+                    stk.pop(); 
+                    if(s[i] == ')' && c != '(')
+                        return false; 
+                    if(s[i] == '}' && c != '{')
+                        return false;
+                    if(s[i] == ']' && c != '[')
+                        return false; 
+            }
+             if(s[i] != ')' && s[i] != ']' && s[i] != '}')
+                stk.push(s[i]); 
+        }
+        if(stk.empty() == true)
+            return true; 
+        else 
+            return false;
+    }
+};
+
+// Ý tưởng: Bỏ dấu mở ngoặc vào Stack gặp dấu đóng ngoặc thì lấy phần tử đầu Stack ra so sánh xem khớp không? 
+// s.empty() trả về true nếu size of stack = 0; false otherwise. 
