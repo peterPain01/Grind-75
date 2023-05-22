@@ -1,3 +1,0 @@
-Độ phức tạp trong thời gian tốt nhất: Big omega
-				    trung bình: Big teta
-				    Xấu nhất: Big O
